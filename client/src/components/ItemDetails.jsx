@@ -24,8 +24,7 @@ const ItemDetails = () => {
     dispatch(fetchItemById(id));
     
   }, []);
-  console.log(auth.userId);
-  console.log(item.userId);
+  
 
   useEffect(()=>{
     if(item.status==='rented'){
