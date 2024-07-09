@@ -24,7 +24,6 @@ const ItemDetails = () => {
     dispatch(fetchItemById(id));
     
   }, []);
-  console.log(rentalRequest.status);
   console.log(auth.userId);
   console.log(item.userId);
 
