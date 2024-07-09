@@ -1,11 +1,13 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import styles from "./ItemCard.module.css"
 
 const ItemCard = ({ item }) => {
-    const handleRentRequest=()=>{
-
+    const navigate=useNavigate();
+    
+    const viewDetails=(id)=>{
+        navigate(`/items/${id}`)
     }
   return (
     <div className={styles.template}>
@@ -16,7 +18,7 @@ const ItemCard = ({ item }) => {
       
       <div className={styles.price}>
       <p>Price: ${item.price}/day</p>
-      <Link to={`/items/${item._id}`}>View Details</Link>
+      <button onClick={()=>viewDetails(item._id)}>View Details</button>
       </div>
     </div>
   );
