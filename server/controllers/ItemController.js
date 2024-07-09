@@ -194,7 +194,7 @@ exports.getPendingItems = async (req, res) => {
     const items = await Item.find({ status: 'pending' });
     res.status(200).json(items);
   } catch (err) {
-    console.error('Error retrieving pending items:', err); // Enhanced logging
+    console.error('Error retrieving pending items:', err);
     res.status(500).json({ message: 'Error retrieving pending items', error: err.message });
   }
 };

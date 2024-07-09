@@ -1,9 +1,10 @@
 
 import axios from 'axios';
+import { baseUrl } from "./constant";
 
 export const fetchItems = () => async (dispatch) => {
   try {
-    const {data} = await axios.get('http://localhost:8000/api/items');
+    const {data} = await axios.get(`${baseUrl}/api/items`);
     dispatch({ type: 'FETCH_ITEMS_SUCCESS', payload: data });
   } catch (err) {
     dispatch({ type: 'FETCH_ITEMS_FAIL', payload: err.response.data });
@@ -12,7 +13,7 @@ export const fetchItems = () => async (dispatch) => {
 
 export const addItem = (itemData) => async (dispatch) => {
   try {
-    const {data} = await axios.post('http://localhost:8000/api/items', itemData);
+    const {data} = await axios.post(`${baseUrl}/api/items`, itemData);
     dispatch({ type: 'ADD_ITEM_SUCCESS', payload: data });
   } catch (err) {
     dispatch({ type: 'ADD_ITEM_FAIL', payload: err.response.data });
@@ -21,7 +22,7 @@ export const addItem = (itemData) => async (dispatch) => {
 
 export const fetchItemById=(id)=> async (dispatch)=>{
     try{
-        const {data}= await axios.get(`http://localhost:8000/api/items/${id}`);
+        const {data}= await axios.get(`${baseUrl}/api/items/${id}`);
         dispatch({type: "FETCH_SUCCESS", payload:data})
 
     }catch(err){
@@ -31,7 +32,7 @@ export const fetchItemById=(id)=> async (dispatch)=>{
 
 export const updateItem = (id, itemData) => async (dispatch) => {
     try {
-      const {data} = await axios.put(`http://localhost:8000/api/items/${id}`, itemData);
+      const {data} = await axios.put(`${baseUrl}/api/items/${id}`, itemData);
       dispatch({ type: 'UPDATE_ITEM_SUCCESS', payload: data });
     } catch (err) {
       dispatch({ type: 'UPDATE_ITEM_FAIL', payload: err.response ? err.response.data : 'Server Error' });
@@ -40,7 +41,7 @@ export const updateItem = (id, itemData) => async (dispatch) => {
 
   export const requestRent = (itemId, renterId) => async (dispatch) => {
     try {
-      const res = await axios.post('http://localhost:8000/api/items/rent', { itemId, renterId });
+      const res = await axios.post(`${baseUrl}/api/items/rent`, { itemId, renterId });
       dispatch({ type: 'RENT_REQUEST_SUCCESS', payload: res.data });
     } catch (err) {
       dispatch({ type: 'RENT_REQUEST_FAIL', payload: err.response ? err.response.data : 'Server Error' });
@@ -49,7 +50,7 @@ export const updateItem = (id, itemData) => async (dispatch) => {
 
   export const fetchRentedItems = (userId) => async (dispatch) => {
     try {
-      const res = await axios.get(`http://localhost:8000/api/items/rented/${userId}`);
+      const res = await axios.get(`${baseUrl}/api/items/rented/${userId}`);
       dispatch({ type: 'FETCH_RENTED_ITEMS_SUCCESS', payload: res.data});
     } catch (err) {
       dispatch({ type: 'FETCH_RENTED_ITEMS_FAIL', payload: err.response ? err.response.data : 'Server Error' });
@@ -58,7 +59,7 @@ export const updateItem = (id, itemData) => async (dispatch) => {
 
   export const unrentItem = (itemId, renterId) => async (dispatch) => {
     try {
-      const res = await axios.post('http://localhost:8000/api/items/unrent', { itemId, renterId });
+      const res = await axios.post(`${baseUrl}/api/items/unrent`, { itemId, renterId });
       dispatch({ type: 'UNRENT_ITEM_SUCCESS', payload: res.data });
     } catch (err) {
       dispatch({ type: 'UNRENT_ITEM_FAIL', payload: err.response ? err.response.data : 'Server Error' });
@@ -68,7 +69,7 @@ export const updateItem = (id, itemData) => async (dispatch) => {
   export const deleteItem = (itemId) => async (dispatch) => {
     dispatch({ type: 'DELETE_ITEM_REQUEST' });
     try {
-      await axios.delete(`http://localhost:8000/api/items/${itemId}`);
+      await axios.delete(`${baseUrl}/api/items/${itemId}`);
       dispatch({ type: 'DELETE_ITEM_SUCCESS', payload: itemId });
     } catch (error) {
       dispatch({ type: 'DELETE_ITEM_FAILURE', payload: error.message });
@@ -78,7 +79,7 @@ export const updateItem = (id, itemData) => async (dispatch) => {
   export const fetchPendingItems = () => async (dispatch) => {
     try {
       dispatch({ type: 'SET_LOADING', payload: true });
-      const res = await axios.get('http://localhost:8000/api/items/pending');
+      const res = await axios.get(`${baseUrl}/api/admin/items`);
       dispatch({ type: 'FETCH_PENDING_ITEMS_SUCCESS', payload: res.data });
       dispatch({ type: 'SET_LOADING', payload: false });
     } catch (err) {
@@ -90,7 +91,7 @@ export const updateItem = (id, itemData) => async (dispatch) => {
   // Approve an item
   export const approveItem = (id) => async (dispatch) => {
     try {
-      const res = await axios.put(`http://localhost:8000/api/items/${id}/approve`);
+      const res = await axios.put(`${baseUrl}/api/items/${id}/approve`);
       dispatch({ type: 'APPROVE_ITEM_SUCCESS', payload: res.data });
     } catch (err) {
       dispatch({ type: 'APPROVE_ITEM_FAIL', payload: err.response ? err.response.data : 'Server Error' });

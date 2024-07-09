@@ -3,7 +3,7 @@ const Item = require('../models/Item');
 
 exports.getPendingItems = async (req, res) => {
   try {
-    const items = await Item.find({ status: 'pending' }).populate('owner', 'name email');
+    const items = await Item.find({ status: 'pending' });
     res.json(items);
   } catch (error) {
     res.status(500).json({ message: 'Error retrieving pending items' });
