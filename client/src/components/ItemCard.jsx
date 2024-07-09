@@ -64,12 +64,19 @@ const ItemCard = ({ item }) => {
         }
       };
     
-        const handleDelete = async (id) => {
-            if (window.confirm('Are you sure you want to delete this item?')) {
-              await dispatch(deleteItem(id));
-              navigate('/'); // Redirect to home page or items list after deletion
-            }
-          };
+      const handleDelete = (id) => {
+        if (window.confirm('Are you sure you want to delete this item?')) {
+          dispatch(deleteItem(id))
+            .then(() => {
+              alert('Item deleted successfully');
+              navigate('/');
+            })
+            .catch((error) => {
+              console.error('Error deleting item:', error);
+              alert('Failed to delete item. Please try again.');
+            });
+        }
+      };
     
   return (
     <div className={styles.template}>
@@ -81,13 +88,13 @@ const ItemCard = ({ item }) => {
       <div className={styles.price}>
       <p>Price: ${item.price}/day</p>
       <div>
-      <button onClick={()=>viewDetails(item._id)}>View Details</button>
+      {/* <button onClick={()=>viewDetails(item._id)}>View Details</button> */}
       {edit && <div className={styles.button2}>
         <button onClick={()=>navigate(`/items/${item._id}/edit`)}>Edit</button>
         <button onClick={()=>handleDelete(item._id)}> Delete</button>
       </div> }
       {!edit && (
-            <button 
+            <button className={styles.button1}
                 onClick={() => handleRentRequest(item._id)}
                 disabled={rented || rentRequested}
                     >

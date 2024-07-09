@@ -66,16 +66,27 @@ export const updateItem = (id, itemData) => async (dispatch) => {
     }
   };
 
+  // export const deleteItem = (itemId) => async (dispatch) => {
+  //   dispatch({ type: 'DELETE_ITEM_REQUEST' });
+  //   try {
+  //     await axios.delete(`${baseUrl}/api/items/${itemId}`);
+  //     dispatch({ type: 'DELETE_ITEM_SUCCESS', payload: itemId });
+  //   } catch (error) {
+  //     dispatch({ type: 'DELETE_ITEM_FAILURE', payload: error.message });
+  //   }
+  // };
   export const deleteItem = (itemId) => async (dispatch) => {
+    console.log('Attempting to delete item with ID:', itemId);
     dispatch({ type: 'DELETE_ITEM_REQUEST' });
     try {
-      await axios.delete(`${baseUrl}/api/items/delete`);
+      const response = await axios.delete(`${baseUrl}/api/items/${itemId}`);
+      console.log('Delete response:', response.data);
       dispatch({ type: 'DELETE_ITEM_SUCCESS', payload: itemId });
     } catch (error) {
+      console.error('Delete error:', error.response?.data || error.message);
       dispatch({ type: 'DELETE_ITEM_FAILURE', payload: error.message });
     }
   };
-
   export const fetchPendingItems = () => async (dispatch) => {
     try {
       dispatch({ type: 'SET_LOADING', payload: true });

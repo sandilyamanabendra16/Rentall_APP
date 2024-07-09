@@ -94,15 +94,20 @@ exports.AddRental = async (req, res) => {
 };
 exports.deleteItem = async (req, res) => {
   try {
-    const {id}=req.body
+    const id = req.params.id;
+    console.log('Attempting to delete item with ID:', id);
     const item = await Item.findById(id);
+    
     if (!item) {
+      console.log('Item not found for ID:', id);
       return res.status(404).json({ message: 'Item not found' });
     }
-
-    await item.remove();
+    
+    await item.deleteOne();
+    console.log('Item deleted successfully');
     res.json({ message: 'Item deleted successfully' });
   } catch (error) {
+    console.error('Error deleting item:', error);
     res.status(500).json({ message: 'Error deleting item' });
   }
 };

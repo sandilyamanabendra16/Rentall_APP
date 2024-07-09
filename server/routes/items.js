@@ -29,7 +29,7 @@ router.post('/', ItemController.createItem);
 router.get('/', ItemController.getItems);
 router.get('/:id', ItemController.getItemById);
 router.put('/:id', ItemController.updateItem);
-router.delete('/delete', ItemController.deleteItem);
+router.delete('/:id', ItemController.deleteItem);
 router.post('/rent', ItemController.AddRental);
 router.get('/rented/:userId', ItemController.getRentedItems);
 router.post('/unrent', ItemController.unrentItem);

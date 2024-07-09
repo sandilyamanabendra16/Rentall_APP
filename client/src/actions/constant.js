@@ -1,3 +1,3 @@
-const baseUrl = 'https://rentall-app.onrender.com';
+const baseUrl = 'http://localhost:8000';
 
 export { baseUrl };
