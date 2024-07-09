@@ -69,7 +69,7 @@ export const updateItem = (id, itemData) => async (dispatch) => {
   export const deleteItem = (itemId) => async (dispatch) => {
     dispatch({ type: 'DELETE_ITEM_REQUEST' });
     try {
-      await axios.delete(`${baseUrl}/api/items/${itemId}`);
+      await axios.delete(`${baseUrl}/api/items/delete`);
       dispatch({ type: 'DELETE_ITEM_SUCCESS', payload: itemId });
     } catch (error) {
       dispatch({ type: 'DELETE_ITEM_FAILURE', payload: error.message });

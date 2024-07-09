@@ -94,7 +94,8 @@ exports.AddRental = async (req, res) => {
 };
 exports.deleteItem = async (req, res) => {
   try {
-    const item = await Item.findById(req.params.id);
+    const {id}=req.body
+    const item = await Item.findById(id);
     if (!item) {
       return res.status(404).json({ message: 'Item not found' });
     }
