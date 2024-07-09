@@ -1,0 +1,31 @@
+.main{
+    background-color: #ED5353;
+    color:white;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    padding-right: 5%;
+}
+
+.main ul{
+    display: flex;
+    list-style-type: none;
+}
+.main ul li{
+    margin: 1%;
+    width: 120px;
+    
+}
+
+.link{
+    color: aliceblue;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: large;
+}
+
+.main button{
+    margin: 5%;
+    all:unset;
+    font-size: large;
+}

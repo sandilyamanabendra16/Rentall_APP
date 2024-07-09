@@ -1,0 +1,27 @@
+.main{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-content: center;
+}
+
+.main h1{
+    align-self: center;
+}
+
+.itemlist{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.template{
+    height: 120px;
+    width: 70vw;
+    border: 1px solid white;
+    margin: 10px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: -5px -5px 10px 10px #FFEEEE, 5px 5px 10px 10px #FFEEEE;
+}

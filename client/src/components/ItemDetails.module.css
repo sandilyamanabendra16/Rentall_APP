@@ -1,0 +1,46 @@
+.template{
+    min-height: 120px;
+    max-height: 600px;
+    width: 70vw;
+    border: 1px solid white;
+    margin: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: -5px -5px 10px 10px #FFEEEE, 5px 5px 10px 10px #FFEEEE;
+    padding:2%;
+}
+.template h2{
+    margin-bottom: 5%;
+}
+.price {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.price p{
+    margin-bottom: 20%;
+}
+
+.template button{
+    all: unset;
+    border: 1px solid rgb(232, 126, 88);
+    padding: 2% 10% 2% 10%;
+    margin-left: 2%;
+    border-radius: 5px;
+}
+
+.button1{
+    width: 200px;
+}
+
+.button1 p{
+    margin: 10%;
+}
+
+.main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5%;
+}

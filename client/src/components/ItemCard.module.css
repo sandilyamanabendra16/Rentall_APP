@@ -1,0 +1,22 @@
+.template{
+    height: 120px;
+    width: 70vw;
+    border: 1px solid white;
+    margin: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: -5px -5px 10px 10px #FFEEEE, 5px 5px 10px 10px #FFEEEE;
+    padding:2%;
+}
+.template h2{
+    margin-bottom: 5%;
+}
+.price {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.price p{
+    margin-bottom: 20%;
+}

@@ -1,0 +1,42 @@
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.form input, .form textarea{
+    height:40px;
+    width:50%;
+    margin-top: 2%;
+    padding-left:10px;
+}
+
+.form textarea{
+    height:100px;
+    width:49%;
+    /* margin:10px 100px 10px 0; */
+    padding:10px;
+}
+.form button{
+    all:unset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width:150px;
+    margin-right:20px ;
+    margin-top: 30px;
+    background-color: #ED5353;
+    color: white;
+    border-radius: 3px;
+}
+
+.main{
+    padding: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.main h1{
+    align-self: center;
+}
